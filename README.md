@@ -15,7 +15,7 @@ This is the first page of the system where the user enters the following details
 
 3.Appointment Time
 
-4Purpose of Appointment
+4.Purpose of Appointment
 
 Once the user fills out the form and clicks Next, all the entered details are stored in localStorage. The user is then redirected to the verification page.
 
