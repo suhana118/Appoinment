@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reschedule</title>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #d0e7ff 0%, #ffffff 100%);
+    }
+
+    .container {
+      background-color: #ffffffcc;
+      padding: 35px;
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .container:hover {
+      transform: translateY(-3px);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #1e88e5;
+      box-shadow: 0 0 6px rgba(30, 136, 229, 0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #1e88e5;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Reschedule Appointment</h2>
+
+    <input id="newDate" type="date">
+    <input id="newTime" type="time">
+
+    <button onclick="save()">Save Changes</button>
+  </div>
+
+  <script>
+    function save() {
+      let a = JSON.parse(localStorage.getItem("appointment"));
+      a.date = document.getElementById("newDate").value;
+      a.time = document.getElementById("newTime").value;
+
+      localStorage.setItem("appointment", JSON.stringify(a));
+      location.href = "appointment3.html";
+    }
+  </script>
+
+</body>
+</html>

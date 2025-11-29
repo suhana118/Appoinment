@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book Appointment</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #d0e7ff 0%, #ffffff 100%);
+      }
+
+      .container {
+        background-color: #ffffffcc;
+        padding: 35px;
+        border-radius: 15px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 320px;
+        transition: transform 0.2s;
+      }
+
+      .container:hover {
+        transform: translateY(-3px);
+      }
+
+      input,
+      button {
+        width: 100%;
+        padding: 12px;
+        margin: 12px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      input:focus {
+        border-color: #1e88e5;
+        outline: none;
+        box-shadow: 0 0 5px rgba(30, 136, 229, 0.4);
+      }
+
+      button {
+        background-color: #1e88e5;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #1565c0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Book Appointment</h2>
+      <input id="name" placeholder="Name" /><br />
+      <input id="date" type="date" /><br />
+      <input id="time" type="time" /><br />
+      <input id="purpose" placeholder="Purpose" /><br />
+      <button onclick="nextPage()">Next</button>
+    </div>
+
+    <script>
+      function nextPage() {
+        let data = {
+          name: document.getElementById("name").value,
+          date: document.getElementById("date").value,
+          time: document.getElementById("time").value,
+          purpose: document.getElementById("purpose").value,
+        };
+        localStorage.setItem("appointment", JSON.stringify(data));
+        location.href = "appointment2.html";
+      }
+    </script>
+  </body>
+</html>
